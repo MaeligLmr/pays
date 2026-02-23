@@ -340,17 +340,25 @@ function loadRandomFlag() {
     document.getElementById('coordinatesFeedback').className = 'feedback-text';
 }
 
+// Fonction pour normaliser les réponses (enlever espaces, tirets, apostrophes, accents)
+function normalizeString(str) {
+    return str
+        .toLowerCase()
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Enlever les accents
+        .replace(/[\s\-']/g, ''); // Enlever espaces, tirets, apostrophes
+}
+
 // Vérifier les réponses
 function checkAnswers() {
     if (!currentCountry) return;
 
-    const inputCountry = document.getElementById('countryName').value.trim().toLowerCase();
-    const inputCapital = document.getElementById('capital').value.trim().toLowerCase();
+    const inputCountry = normalizeString(document.getElementById('countryName').value.trim());
+    const inputCapital = normalizeString(document.getElementById('capital').value.trim());
     
     let correct = true;
     
     // Vérifier le pays
-    if (inputCountry === currentCountry.name.toLowerCase()) {
+    if (inputCountry === normalizeString(currentCountry.name)) {
         document.getElementById('countryNameFeedback').textContent = '✓ Correct!';
         document.getElementById('countryNameFeedback').className = 'feedback-text feedback-correct';
     } else {
@@ -360,7 +368,7 @@ function checkAnswers() {
     }
     
     // Vérifier la capitale
-    if (inputCapital === currentCountry.capital.toLowerCase()) {
+    if (inputCapital === normalizeString(currentCountry.capital)) {
         document.getElementById('capitalFeedback').textContent = '✓ Correct!';
         document.getElementById('capitalFeedback').className = 'feedback-text feedback-correct';
     } else {
