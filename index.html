@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz des Pays - Drapeaux</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-draw/1.0.4/leaflet.draw.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="score-display">
+                <span>Score: <strong id="score">0</strong>/<strong id="total">0</strong></span>
+            </div>
+        </div>
+
+        <div class="quiz-container">
+            <!-- Section Drapeau -->
+            <div class="flag-section">
+
+                <img id="flagImage" src="" alt="Drapeau" class="flag">
+                <button id="newFlagBtn" class="btn btn-primary">Nouveau Drapeau</button>
+                <div class="form-group">
+                    <input type="text" id="countryName" placeholder="Entrez le nom du pays" class="form-input">
+                    <label for="countryName" id="countryNameFeedback" class="feedback-text"></label>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" id="capital" placeholder="Entrez la capitale" class="form-input">
+                    <label for="capital" id="capitalFeedback" class="feedback-text"></label>
+                </div>
+
+                <div class="form-group">
+                    <div class="coordinates-display">
+                        Latitude: <strong id="latDisplay">-</strong> | Longitude: <strong id="lngDisplay">-</strong>
+                    </div>
+                    <label for="coordinates" id="coordinatesFeedback" class="feedback-text"></label>
+                </div>
+
+                <button id="submitBtn" class="btn btn-success">Valider les réponses</button>
+                <button id="skipBtn" class="btn btn-secondary">Passer</button>
+            </div>
+
+
+            <!-- Section Carte -->
+            <div class="map-section">
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-draw/1.0.4/leaflet.draw.umd.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
