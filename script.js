@@ -179,7 +179,7 @@ const countries = {
 
 let currentCountry = null;
 let selectedCoords = null;
-let selectedCountryOnMap = null;
+let selectedCountryOnMap = null; 
 let score = 0;
 let total = 0;
 let map = null;
